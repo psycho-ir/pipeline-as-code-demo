@@ -3,7 +3,7 @@
 stage 'Dev'
 node {
     git url: 'https://github.com/psycho-ir/pipeline-as-code-demo.git'
-    mvn 'clean package'
+    sbt 'clean compile'
     dir('target') {stash name: 'war', includes: 'x.war'}
 }
 
@@ -35,6 +35,10 @@ node {
 
 def mvn(args) {
     sh "${tool 'Maven 3.x'}/bin/mvn ${args}"
+}
+
+def sbt(args) {
+    sh "${tool "sbt"}/bin/sbt ${args}"
 }
 
 def runTests(duration) {
