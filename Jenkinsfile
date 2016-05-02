@@ -8,9 +8,9 @@ node {
 
 stage 'QA'
 parallel(longerTests: {
-    runTests(30)
+    runTests(3)
 }, quickerTests: {
-    runTests(20)
+    runTests(2)
 })
 
 stage name: 'Staging', concurrency: 1
