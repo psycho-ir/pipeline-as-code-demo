@@ -2,6 +2,7 @@
 
 stage 'Dev'
 node {
+    git url: 'https://github.com/psycho-ir/pipeline-as-code-demo.git'
     mvn 'clean package'
     dir('target') {stash name: 'war', includes: 'x.war'}
 }
